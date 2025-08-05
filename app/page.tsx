@@ -14,8 +14,8 @@ const posterData: PosterData[] = [
   {
     id: 'rangkaian-acara',
     title: 'Poster Rangkaian Acara',
-    imagePath: '/poster-rangkaian-acara.png',
-    pdfLink: 'https://drive.google.com/file/d/1nbvE4ekE0HeCoMrrOXvT8kpxvNX1q8Cj/view?usp=sharing'
+    imagePath: '/rangkaian-acara.png',
+    pdfLink: 'https://drive.google.com/file/d/1EjYEx6BjHQGeoZ4J8UntVedqs5jxzw-r/view?usp=sharing'
   },
   {
     id: 'tirakatan',
@@ -26,14 +26,14 @@ const posterData: PosterData[] = [
   {
     id: 'lomba',
     title: 'Poster Lomba',
-    imagePath: '/poster-lomba.png',
-    pdfLink: 'https://drive.google.com/file/d/1QF9stKmSZWaztmaXmtgoLO5D_JWDi2un/view?usp=sharing'
+    imagePath: '/lomba.png',
+    pdfLink: 'https://drive.google.com/file/d/1B2jsJti39-pAbYSBniDJTztAiqIuV03L/view?usp=sharing'
   },
   {
     id: 'desain-cocard',
     title: 'Desain Cocard',
-    imagePath: '/desain-cocard.png',
-    pdfLink: 'https://drive.google.com/file/d/18zNCPCb1LASMhuWhhYSKC8r7BdzKHHCZ/view?usp=sharing'
+    imagePath: '/cocard.png',
+    pdfLink: 'https://drive.google.com/file/d/17Q0gNkgu80YkYJ4d1Z3fzE9FFLhDBipr/view?usp=sharing'
   },
   {
     id: 'kesehatan',
@@ -56,8 +56,8 @@ const posterData: PosterData[] = [
   {
     id: 'malam-puncak-banner',
     title: 'Banner Malam Puncak',
-    imagePath: '/banner-malam-puncak.png',
-    pdfLink: 'https://drive.google.com/file/d/1Yh0o-V2gCTHCMKEgGdt-eirv2Gxyimk8/view?usp=sharing'
+    imagePath: '/banner-puncak.png',
+    pdfLink: 'https://drive.google.com/file/d/151sev2mI051Qf7adsX19n72mK0uo6Qft/view?usp=sharing'
   }
 ];
 
