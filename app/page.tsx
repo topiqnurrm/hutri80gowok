@@ -1,103 +1,222 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+
+interface PosterData {
+  id: string;
+  title: string;
+  imagePath: string;
+  pdfLink: string;
+}
+
+const posterData: PosterData[] = [
+  {
+    id: 'rangkaian-acara',
+    title: 'Poster Rangkaian Acara',
+    imagePath: '/poster-rangkaian-acara.png',
+    pdfLink: 'https://drive.google.com/file/d/1nbvE4ekE0HeCoMrrOXvT8kpxvNX1q8Cj/view?usp=sharing'
+  },
+  {
+    id: 'tirakatan',
+    title: 'Poster Tirakatan',
+    imagePath: '/poster-tirakatan.png',
+    pdfLink: 'https://drive.google.com/file/d/1qMJW0YrEeUnqb9-4-tYQG-BFlVKFbT8f/view?usp=sharing'
+  },
+  {
+    id: 'lomba',
+    title: 'Poster Lomba',
+    imagePath: '/poster-lomba.png',
+    pdfLink: 'https://drive.google.com/file/d/1QF9stKmSZWaztmaXmtgoLO5D_JWDi2un/view?usp=sharing'
+  },
+  {
+    id: 'desain-cocard',
+    title: 'Desain Cocard',
+    imagePath: '/desain-cocard.png',
+    pdfLink: 'https://drive.google.com/file/d/18zNCPCb1LASMhuWhhYSKC8r7BdzKHHCZ/view?usp=sharing'
+  },
+  {
+    id: 'kesehatan',
+    title: 'Poster Kesehatan',
+    imagePath: '/poster-kesehatan.png',
+    pdfLink: 'https://drive.google.com/file/d/1gkInLIJRIG_jDberS9FPJTdfkMyxuXKF/view?usp=sharing'
+  },
+  {
+    id: 'lanyard',
+    title: 'Lanyard',
+    imagePath: '/lanyard.png',
+    pdfLink: 'https://drive.google.com/file/d/1yWrmw7OowV7SKHkVyhDV4tB8nSnVvYds/view?usp=sharing'
+  },
+  {
+    id: 'malam-puncak-poster',
+    title: 'Poster Malam Puncak',
+    imagePath: '/poster-malam-puncak.png',
+    pdfLink: 'https://drive.google.com/file/d/your-file-id-7/view'
+  },
+  {
+    id: 'malam-puncak-banner',
+    title: 'Banner Malam Puncak',
+    imagePath: '/banner-malam-puncak.png',
+    pdfLink: 'https://drive.google.com/file/d/1Yh0o-V2gCTHCMKEgGdt-eirv2Gxyimk8/view?usp=sharing'
+  }
+];
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [selectedPoster, setSelectedPoster] = useState<PosterData>(posterData[0]);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handlePosterSelect = (poster: PosterData) => {
+    setSelectedPoster(poster);
+  };
+
+  const handlePdfDownload = () => {
+    window.open(selectedPoster.pdfLink, '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <div className="flex h-screen bg-gray-100 dark:bg-gray-900">
+      {/* Sidebar */}
+      <div className={`bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 ${
+        isSidebarOpen ? 'w-80' : 'w-16'
+      }`}>
+        {/* Sidebar Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+          {isSidebarOpen && (
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
+              Galeri Poster
+            </h2>
+          )}
+          <button
+            onClick={toggleSidebar}
+            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            aria-label={isSidebarOpen ? 'Minimize sidebar' : 'Expand sidebar'}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <svg
+              className={`w-5 h-5 text-gray-600 dark:text-gray-400 transition-transform ${
+                isSidebarOpen ? 'rotate-180' : ''
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M11 19l-7-7 7-7m8 14l-7-7 7-7"
+              />
+            </svg>
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Sidebar Content */}
+        <div className="overflow-y-auto h-full pb-20">
+          {posterData.map((poster) => (
+            <button
+              key={poster.id}
+              onClick={() => handlePosterSelect(poster)}
+              className={`w-full p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border-b border-gray-100 dark:border-gray-700 ${
+                selectedPoster.id === poster.id
+                  ? 'bg-blue-50 dark:bg-blue-900/20 border-r-4 border-r-blue-500'
+                  : ''
+              }`}
+            >
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                {isSidebarOpen && (
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                      {poster.title}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Klik untuk melihat
+                    </p>
+                  </div>
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col">
+        {/* Header */}
+        <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                {selectedPoster.title}
+              </h1>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                Klik tombol PDF untuk mengunduh file
+              </p>
+            </div>
+            <button
+              onClick={handlePdfDownload}
+              className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors shadow-sm"
+            >
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              File PDF
+            </button>
+          </div>
+        </header>
+
+        {/* Image Display */}
+        <main className="flex-1 p-6 overflow-auto">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+              <div className="relative w-full h-[600px] md:h-[700px] lg:h-[800px]">
+                <Image
+                  src={selectedPoster.imagePath}
+                  alt={selectedPoster.title}
+                  fill
+                  className="object-contain"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                />
+              </div>
+              <div className="p-4 bg-gray-50 dark:bg-gray-700">
+                <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                  {selectedPoster.title} - Klik tombol PDF di atas untuk mengunduh
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
