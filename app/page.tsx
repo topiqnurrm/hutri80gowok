@@ -14,8 +14,8 @@ const posterData: PosterData[] = [
   {
     id: 'rangkaian-acara',
     title: 'Poster Rangkaian Acara',
-    imagePath: '/rangkaian-acara.png',
-    pdfLink: 'https://drive.google.com/file/d/1EjYEx6BjHQGeoZ4J8UntVedqs5jxzw-r/view?usp=sharing'
+    imagePath: '/acara.png',
+    pdfLink: 'https://drive.google.com/file/d/10NtWHEbnAkOqlJ2pgSjjiwyJRl4341bB/view?usp=sharing'
   },
   {
     id: 'tirakatan',
