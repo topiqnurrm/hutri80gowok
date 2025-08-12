@@ -43,15 +43,15 @@ const posterData: PosterData[] = [
   },
   {
     id: 'lanyard',
-    title: 'Lanyard',
+    title: 'Lanyard (90x2 cm)',
     imagePath: '/lanyard.png',
     pdfLink: 'https://drive.google.com/file/d/1yWrmw7OowV7SKHkVyhDV4tB8nSnVvYds/view?usp=sharing'
   },
   {
     id: 'malam-puncak-poster',
     title: 'Poster Malam Puncak',
-    imagePath: '/poster-malam-puncak.png',
-    pdfLink: 'https://drive.google.com/file/d/your-file-id-7/view'
+    imagePath: '/poster-malam-puncak.jpg',
+    pdfLink: 'https://drive.google.com/file/d/1guwGFXCS4x6YMUgVpFqYmvlua5r0L4yA/view?usp=sharing'
   },
   {
     id: 'malam-puncak-banner',
