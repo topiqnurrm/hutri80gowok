@@ -56,8 +56,8 @@ const posterData: PosterData[] = [
   {
     id: 'malam-puncak-banner',
     title: 'Banner Malam Puncak',
-    imagePath: '/banner-puncak.png',
-    pdfLink: 'https://drive.google.com/file/d/151sev2mI051Qf7adsX19n72mK0uo6Qft/view?usp=sharing'
+    imagePath: '/banner-punk.png',
+    pdfLink: 'https://drive.google.com/file/d/1kO8NJNRCbh66isiMuFtD0ksmYzPZJgS4/view?usp=sharing'
   }
 ];
 
