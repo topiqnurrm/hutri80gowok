@@ -38,8 +38,8 @@ const posterData: PosterData[] = [
   {
     id: 'kesehatan',
     title: 'Poster Kesehatan',
-    imagePath: '/poster-kesehatan.png',
-    pdfLink: 'https://drive.google.com/file/d/1gkInLIJRIG_jDberS9FPJTdfkMyxuXKF/view?usp=sharing'
+    imagePath: '/pemeriksaankk.png',
+    pdfLink: 'https://drive.google.com/file/d/1eYF31OzmV-3eyfDdbPdy7mkVExuF1a15/view?usp=sharing'
   },
   {
     id: 'lanyard',
